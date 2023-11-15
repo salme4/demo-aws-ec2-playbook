@@ -6,7 +6,7 @@
     - group_vars/ec2.yml
   tasks:
     - name: Get instances facts
-      ec2_instance_info:
+      amazon.aws.ec2_instance_info:
         region: "{{ region }}"
       register: result
 
