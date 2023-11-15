@@ -5,6 +5,12 @@
   vars_files:
     - group_vars/ec2.yml
   tasks:
+    - name : Show all the hosts.
+      debug: 
+        msg: "{{ item }}"
+      with_inventory_hostnames:
+        - all
+
     - name: Get instances facts
       amazon.aws.ec2_instance_info:
         region: "{{ region }}"
